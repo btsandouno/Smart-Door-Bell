@@ -1,0 +1,20 @@
+Réalisation d'une Smart Door Bell
+Auteur: BERNARD TAMBA SANDOUNO
+copyright 2020
+
+-->Ce projet permet de connecter une Raspberry qui fait office de la sonnette et une machine faisant office de l'utilisateur.
+Cette raspberry envoie une notification à l'user à chaque qu'une presence est detectee dans le domaine de l 'user.Ainsi, l'user permettra de prendre des decisions meme s'il est absent de chez lui.
+
+--> Pour ce faire, la raspberry et la machine communiquent en utilisant les sockets.Puisque les sockets fonctionnent dans une architecture client-serveur, la raspberry agit en tant que Client et la machine en tant que Serveur. La raspberry est "Client" parceque c'est elle qui initie la connexion avec la machine lorsqu'une presence est detectee.
+
+--> Pour permettre cette communication entre le Client et le serveur, deux programmes ont été implementés en utilisant le langage Python du côté Serveur et du côté Client.
+
+--> L'objectif principal de cette sonnette, est d'assurer la communication entre le visiteur et l'utilisateur independemment de la localisation de ce dernier. En d'autres termes, l'utilisateur, même s'il est au travail par exemple, peut communiquer avec son viisteur, ou même lui ouvrir la porte ou declencher l'alarme avec un simple clic sur son Dashboard. Toutefois,dans le cadre de ce projet, la communication entre le Client et le Serveur est assurée à faible portée, c'est à dire que ces derniers doivent être dans le meme reseau Internet local.
+
+--> Afin de mettre ces deux dans le meme reseau local, deux techniques principales sont possibles:
+	--> L'utilisation d'un meme WIFI: Tres efficace, mais il se peut dans certains cas que les deux ne soient pas forcement dans le meme reseau local, ce qui peut empecher la communication entre la raspberry et la machine.
+	--> Hotspot: Cette technique à été utilisé dans ce projet. Partager la connexion à partir d'un telephone et utiliser cette connexion entre la raspberry et la machine. Il faut de preference faire en sorte que le hotspot soit sans mot de passe.
+--> Enfin un autre probleme qui peut arriver, est le firewall. En effet, ce dernier peut bloquer le traffic venant de la Raspberry. Pour eviter cela, il faut autoriser le firewall à laisser passer le traffic sur ce port specifique.
+
+--> Une fois ces conditions réunies, il faut commencer par exécuter le code chez l'utilisateur(puisqu'il est le serveur) et ensuite la raspberry(qui est le client). Une fois la presence detectée par la Raspberry, le dashboard de l'user est automatiquement affichée. Les actions peuvent donc être executées.
+
